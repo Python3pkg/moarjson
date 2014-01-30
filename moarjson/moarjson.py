@@ -31,9 +31,7 @@ class Moarjson(object):
             self._register(cls, f)
             return f
         if f:
-            self._register(cls, f)
-            #outer_wrapper(f)
-            return
+            return outer_wrapper(f)
         return outer_wrapper
 
     def __call__(self, *args, **kwargs):

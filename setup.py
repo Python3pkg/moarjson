@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='Moarjson',
-    version='0.1',
+    name='moarjson',
+    version='0.1.1',
     url='https://github.com/Bulv1ne/Moarjson',
     license='MIT',
     author='Niels Lemmens',
