@@ -42,3 +42,9 @@ class Moarjson(object):
 
     def dump(self, *args, **kwargs):
         return json.dump(*args, cls=self, **kwargs)
+
+    def loads(self, *args, **kwargs):
+        return json.loads(*args, **kwargs)
+
+    def load(self, *args, **kwargs):
+        return json.load(*args, **kwargs)
