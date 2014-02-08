@@ -34,6 +34,16 @@ class Moarjson(object):
             return outer_wrapper(f)
         return outer_wrapper
 
+    def register_with_fields(self, cls, fields):
+        @self.register(cls)
+        def convert(obj):
+            d = {}
+            for field in fields:
+                attr = getattr(obj, field)
+                # Convert get value of callables
+                d[field] = attr() if callable(attr) else attr
+            return d
+
     def __call__(self, *args, **kwargs):
         return ClassFactory(self.name, self.l)(*args, **kwargs)
 
