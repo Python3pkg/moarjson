@@ -52,6 +52,38 @@ Use register as a decorator::
        return obj.strftime(format='%Y-%m-%d %H:%M')
 
 
+Django models
+-------------
+
+Django user model field::
+
+   from django.contrib.auth.models import User
+
+   @json.register(User)
+   def convert_user(user):
+      return {
+         'id': user.id,
+         'username': user.username
+      }
+
+   def user_view(request):
+      # Json encoded user object
+      json_dump = json.dumps(User.objects.get(pk=1))
+
+      return HttpResponse(json_dump, content_type='application/json')
+
+``User.objects.all()`` is an iterable, so register iterables that first.
+Convert any iterable to a list::
+
+   import collections
+   json.register(collections.Iterable, list)
+
+   def user_list_view(request):
+      # List of users
+      json_dump = json.dumps(User.objects.all())
+
+      return HttpResponse(json_dump, content_type='application/json')
+
 
 Contribution
 ------------
