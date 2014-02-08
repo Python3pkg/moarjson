@@ -8,7 +8,7 @@ class User(object):
         self.last_name = last_name
 
     def full_name(self):
-        return '{} {}'.format(self.first_name, self.last_name)
+        return '{0} {1}'.format(self.first_name, self.last_name)
 
 
 json.register_with_fields(User, ('first_name', 'last_name', 'full_name',))
