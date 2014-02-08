@@ -11,16 +11,20 @@ def read_file(filename):
     finally:
         f.close()
 
+
 class PyTest(TestCommand):
+
     def finalize_options(self):
         TestCommand.finalize_options(self)
         self.test_args = []
         self.test_suite = True
+
     def run_tests(self):
         #import here, cause outside the eggs aren't loaded
         import pytest
         errno = pytest.main(self.test_args)
         sys.exit(errno)
+
 
 setup(
     name='moarjson',
@@ -30,7 +34,7 @@ setup(
     author='Niels Lemmens',
     author_email='draso.odin@gmail.com',
     tests_require=['pytest'],
-    cmdclass = {'test': PyTest},
+    cmdclass={'test': PyTest},
     description='Easily json dump types and classes',
     long_description=read_file('README.md'),
     packages=['moarjson'],
