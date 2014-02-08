@@ -1,6 +1,8 @@
 moarjson
 ========
 
+[![Build Status](https://travis-ci.org/bulv1ne/moarjson.png?branch=master)](https://travis-ci.org/bulv1ne/moarjson)
+
 Install
 -------
 
