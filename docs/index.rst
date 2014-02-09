@@ -72,7 +72,7 @@ Django user model field::
 
       return HttpResponse(json_dump, content_type='application/json')
 
-``User.objects.all()`` is an iterable, so register iterables that first.
+``User.objects.all()`` is an iterable, so register iterables first.
 Convert any iterable to a list::
 
    import collections
