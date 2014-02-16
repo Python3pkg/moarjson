@@ -25,7 +25,7 @@ class PyTest(TestCommand):
 
 setup(
     name='moarjson',
-    version='0.2.1',
+    version='0.3.1',
     url='https://github.com/Bulv1ne/Moarjson',
     license='MIT',
     author='Niels Lemmens',
