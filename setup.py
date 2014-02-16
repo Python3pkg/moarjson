@@ -1,3 +1,4 @@
+import os
 import sys
 
 from setuptools import setup
@@ -5,7 +6,7 @@ from setuptools.command.test import test as TestCommand
 
 
 def read_file(filename):
-    with open(filename) as f:
+    with open(os.path.join(os.path.dirname(__file__), filename)) as f:
         return f.read()
 
 
@@ -25,7 +26,7 @@ class PyTest(TestCommand):
 
 setup(
     name='moarjson',
-    version='0.3.1',
+    version='0.3.4',
     url='https://github.com/Bulv1ne/Moarjson',
     license='MIT',
     author='Niels Lemmens',
