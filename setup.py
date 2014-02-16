@@ -5,11 +5,8 @@ from setuptools.command.test import test as TestCommand
 
 
 def read_file(filename):
-    try:
-        f = open(filename)
+    with open(filename) as f:
         return f.read()
-    finally:
-        f.close()
 
 
 class PyTest(TestCommand):
