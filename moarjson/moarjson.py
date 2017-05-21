@@ -1,4 +1,5 @@
 import json
+import collections
 
 
 def ClassFactory(name, l):
@@ -41,7 +42,7 @@ class Moarjson(object):
             for field in fields:
                 attr = getattr(obj, field)
                 # Convert get value of callables
-                d[field] = attr() if callable(attr) else attr
+                d[field] = attr() if isinstance(attr, collections.Callable) else attr
             return d
 
     def __call__(self, *args, **kwargs):
